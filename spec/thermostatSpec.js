@@ -18,6 +18,10 @@ describe('Thermostat', function() {
         thermostat.down();
         expect(thermostat.temperature()).toEqual(19);
     });
+    it('cannot decrease the temperature below 10 degrees', function() {
+        var thermostat = new Thermostat;
+        for (var i = 1; i <= 10; i++) { thermostat.down(); };
+        expect(function(){ thermostat.down() }).toThrowError('Minimum Temperature is 10 Degrees');
+    });
   });
-
 });

@@ -11,5 +11,6 @@ Thermostat.prototype.up = function() {
 }
 
 Thermostat.prototype.down = function() {
+  if (this._temperature <= 10) {throw Error('Minimum Temperature is 10 Degrees')};
   this._temperature -= 1;
 }
