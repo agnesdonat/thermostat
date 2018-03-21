@@ -12,5 +12,12 @@ describe('Thermostat', function() {
         expect(thermostat.temperature()).toEqual(21);
     });
   });
+  describe('temperature down function', function() {
+    it('decreases the temperature by 1 degree', function() {
+        var thermostat = new Thermostat;
+        thermostat.down();
+        expect(thermostat.temperature()).toEqual(19);
+    });
+  });
 
 });
