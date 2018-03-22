@@ -1,3 +1,5 @@
+'use strict';
+
 function Thermostat () {
   this._temperature = 20;
 }
@@ -7,6 +9,7 @@ Thermostat.prototype.temperature = function() {
 }
 
 Thermostat.prototype.up = function() {
+  if (this._temperature >= 25) { throw Error('Maximum temperature reached')}
   this._temperature += 1;
 }
 
