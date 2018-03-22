@@ -11,6 +11,13 @@ describe('Thermostat', function() {
       expect(thermostat.temperature()).toEqual(20);
     });
   });
+  describe('reset temperature', function(){
+    it('will set temperature back to 20', function(){
+      for (var i = 1; i <= 3; i++) {thermostat.up(); }
+      thermostat.reset()
+      expect(thermostat.temperature()).toEqual(20);
+    });
+  });
   describe('temperature up function', function() {
     it('increases the temperature by 1 degree', function() {
       thermostat.up();
@@ -27,7 +34,6 @@ describe('Thermostat', function() {
         thermostat._powersavingSwitch();
       });
       it('will throw an error when trying to raise temperature above 32', function(){
-        console.log(thermostat._powersaving)
         for (var i = 1; i <= 12; i++) {thermostat.up(); }
         expect(function(){thermostat.up();}).toThrowError('Maximum temperature reached')
       });
