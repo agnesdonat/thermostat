@@ -2,6 +2,7 @@
 
 function Thermostat () {
   this._temperature = 20;
+  this._powersaving = true;
 }
 
 Thermostat.prototype.temperature = function() {
@@ -9,11 +10,21 @@ Thermostat.prototype.temperature = function() {
 }
 
 Thermostat.prototype.up = function() {
-  if (this._temperature >= 25) { throw Error('Maximum temperature reached')}
+  if (this._temperature >= this.max()) { throw Error('Maximum temperature reached')}
   this._temperature += 1;
 }
 
 Thermostat.prototype.down = function() {
   if (this._temperature <= 10) {throw Error('Minimum Temperature is 10 Degrees')};
   this._temperature -= 1;
+}
+
+Thermostat.prototype.max = function() {
+  if (this._powersaving) {
+    return 25
+  }
+  return 32
+};
+Thermostat.prototype._powersavingSwitch = function() {
+  this._powersaving = !this._powersaving
 }

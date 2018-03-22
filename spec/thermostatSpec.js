@@ -22,6 +22,16 @@ describe('Thermostat', function() {
         expect(function(){thermostat.up();}).toThrowError('Maximum temperature reached')
       });
     });
+    describe('powersaving mode off', function() {
+      beforeEach(function() {
+        thermostat._powersavingSwitch();
+      });
+      it('will throw an error when trying to raise temperature above 32', function(){
+        console.log(thermostat._powersaving)
+        for (var i = 1; i <= 12; i++) {thermostat.up(); }
+        expect(function(){thermostat.up();}).toThrowError('Maximum temperature reached')
+      });
+    });
   });
   describe('temperature down function', function() {
     it('decreases the temperature by 1 degree', function() {
