@@ -37,6 +37,18 @@ describe('Thermostat', function() {
         for (var i = 1; i <= 12; i++) {thermostat.up(); }
         expect(function(){thermostat.up();}).toThrowError('Maximum temperature reached')
       });
+      it('will return low usage if temperature is less than 18', function(){
+        for (var i = 1; i <= 5; i++) {thermostat.down(); }
+        expect(thermostat.usage()).toBe('low')
+      });
+      it('will return medium usage if temperature is less than 25', function(){
+        for (var i = 1; i <= 2; i++) {thermostat.up(); }
+        expect(thermostat.usage()).toBe('medium')
+      });
+      it('will high usage for anything above 25', function(){
+        for (var i = 1; i <= 7; i++) {thermostat.up(); }
+        expect(thermostat.usage()).toBe('high')
+      });
     });
   });
   describe('temperature down function', function() {
