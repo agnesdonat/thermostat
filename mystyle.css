@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .low {
   color: green;
 }
@@ -8,4 +14,18 @@
 
 .high {
   color: red;
+}
+
+body {
+  background-color: gold;
+}
+
+#main {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+#sub {
+  max-width: 500px;
+  margin: 20px auto;
 }
